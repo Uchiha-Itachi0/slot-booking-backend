@@ -8,7 +8,6 @@ interface Slot {
 interface BookingDocument extends Document {
     date: string,
     slot: Slot,
-    status: string,
 }
 
 const BookingSchema = new Schema<BookingDocument>({
@@ -17,7 +16,6 @@ const BookingSchema = new Schema<BookingDocument>({
         start: {type: Number, required: true},
         end: {type: Number, required: true},
     },
-    status: {type: String, default: "booked"}
 });
 
 export default mongoose.model<BookingDocument>("booking", BookingSchema);
