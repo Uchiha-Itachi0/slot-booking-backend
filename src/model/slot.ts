@@ -7,12 +7,12 @@ interface Slot {
 
 interface SlotDocument extends Document {
     day: string,
-    slot: Slot[]
+    slots: Slot[]
 }
 
 const SlotSchema = new Schema<SlotDocument>({
     day: {type: String, required: true},
-    slot: [
+    slots: [
         {
             start: {type: Number, required: true},
             end: {type: Number, required: true},
