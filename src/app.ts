@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(cors())
 
 app.use('/api/slots', slotRoutes);
-app.use('/api/booking', bookingRoutes);
+app.use('/api/book-slot', bookingRoutes);
 
 app.use(errorHandler);
 

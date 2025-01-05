@@ -5,6 +5,7 @@ import Booking from "../model/booking";
 export const bookingController = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
         const {date, slot} = req.body;
+        console.log(slot);
 
         const existingBooking = await Booking.findOne({date, 'slot.start': slot.start, 'slot.end': slot.end});
         if(existingBooking){
