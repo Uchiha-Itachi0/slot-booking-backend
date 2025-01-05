@@ -18,8 +18,12 @@ export const getSlotBooking = async (req: Request, res: Response, next: NextFunc
         const availableSlot = slotData.slots.flatMap(({start, end}) => {
             const slots = [];
             for(let i = start; i < end; i += .5){
-                const slot = {start: i, end: i + .5}
+                const slot = {start: i, end: i + .5, booked: false}
                 if(!bookedSlots.some(b => b.start === slot.start && b.end === slot.end)) slots.push(slot)
+                else {
+                    slot.booked = true;
+                    slots.push(slot)
+                }
             }
             return slots
         });
